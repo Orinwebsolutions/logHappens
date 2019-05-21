@@ -1,7 +1,11 @@
 <?php
 include("config.php");
 
-$ip = get_ip();
+/**
+ * Security check
+ */
+
+$ip = $_SERVER['REMOTE_ADDR'];
 if ($ipwhitelists && !is_ip_in($ip, $ipwhitelists)) {
 	http_response_code(403);
 	echo 'ip banned: ' . $ip;
@@ -14,23 +18,6 @@ if ($get_token != $token) {
     echo 'token invalid';
     // header('Location: https://www.google.com', true, 301);
     exit;
-}
-
-/**
- * Security check
- */
-
-function get_ip() {
-    foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
-        if (array_key_exists($key, $_SERVER) === true) {
-            foreach (array_map('trim', explode(',', $_SERVER[$key])) as $ip) {
-                if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false) {
-                    return $ip;
-                }
-            }
-        }
-    }
-    return $_SERVER['REMOTE_ADDR'];
 }
 
 /**
