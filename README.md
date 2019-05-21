@@ -21,6 +21,10 @@ $ipwhitelists = ['127.0.0.1', '192.168.99.1', '123.56.24.0/22'];
 $local_static = 1;
 ```
 
+中文用户请看：[推荐实时查看Web服务器错误日志的软件：LogHappens](https://vps123.top/web-server-error-log-viewer-recommend-loghappens.html)
+
+## ↓↓↓ The Original Doc ↓↓↓
+
 See the website: http://loghappens.com
 
 Bug happens. Every developer knows that. The nasty thing is that if you want to see what happened, you have to crawl between hundred lines log files, written in txt format, with no options to see them in an easier format, perhaps grouped by time.
