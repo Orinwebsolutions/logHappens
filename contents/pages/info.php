@@ -30,7 +30,7 @@
         <h5>Any troubles?</h5>
         <p>
             In order to use LogHappens you will need to configure a few things. If you
-            have any troubles, please see the <a href="?page=troubleshooting">Troubleshooting</a>
+            have any troubles, please see the <a href="?token=<?= $token ?>&page=troubleshooting">Troubleshooting</a>
             page. If you find some technical issues, please open an issue on
             <a href="https://github.com/ToX82/logHappens/issues">GitHub</a>.
         </p>

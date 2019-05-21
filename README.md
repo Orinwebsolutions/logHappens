@@ -1,6 +1,25 @@
 logHappens!
 =============
-[![Code Climate](https://codeclimate.com/github/ToX82/logHappens/badges/gpa.svg)](https://codeclimate.com/github/ToX82/logHappens) 
+[![Code Climate](https://codeclimate.com/github/ToX82/logHappens/badges/gpa.svg)](https://codeclimate.com/github/ToX82/logHappens)
+
+## Updates after fork
+I do some work to make it work better in dev env or in public env. That is:
+- Support token for security, one can't access the site without the token in `config.php`
+- Support IP whitelists for security and privacy
+- Sopport config the interval between ajax requests
+- Support load static files from local (for local dev env)
+
+New config items in config.php:
+```
+// interval between ajax requests, in milliseconds, use a big number if you want to refresh to see updates
+$interval = 30 * 1000;
+// access the site with this parameter for security and privacy, if this set, access your site with ?token=mytoken parameter
+$token = 'mytoken';
+// ip scope which are allowed to access this site
+$ipwhitelists = ['127.0.0.1', '192.168.99.1', '123.56.24.0/22'];
+// load the static files(js/css/fonts) from local, not cdn; 0 or 1, default 1
+$local_static = 1;
+```
 
 See the website: http://loghappens.com
 

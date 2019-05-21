@@ -1,13 +1,13 @@
 <ul id="slide-out" class="side-nav fixed leftside-navigation col s8 m5 l3 no-padding grey lighten-4">
     <li>
-        <a href="?page=info" class="waves-effect">
+        <a href="?token=<?= $token ?>&page=info" class="waves-effect">
             <span class="iconify grey-text text-darken-2" data-icon="ant-design:home" data-inline="false" data-width="22" data-height="22"></span>
             Home page
         </a>
     </li>
     <?php foreach ($menuItems as $filename => $item) { ?>
         <li class="<?= ($filename == $logic) ? "active" : "" ?>">
-            <a href="?page=log_reader&amp;logic=<?= $filename ?>"
+            <a href="?token=<?= $token ?>&page=log_reader&amp;logic=<?= $filename ?>"
                 class="truncate waves-effect waves-<?= $item['color'] ?> <?= ($filename == $logic) ? 'active' : "" ?>"
                 data-tracked="true"
                 data-howmany="<?= $item['count'] ?>"

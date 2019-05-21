@@ -30,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a class="btn-floating red truncateLink" href="ajax.php?action=truncate&amp;logFile=<?= $menuItems[$logic]['file'] ?>">
+            <a class="btn-floating red truncateLink" href="ajax.php?token=<?= $token ?>&action=truncate&amp;logFile=<?= $menuItems[$logic]['file'] ?>">
                 <i class="tooltipped material-icon" data-position="left" data-delay="50" data-tooltip="Truncate this log file">
                     <span class="iconify white-text" data-icon="mdi:delete-forever" data-width="26" data-height="26"></span>
                 </i>
