@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+require __DIR__ . '/CIDRmatch.php';
 
 /**
  * Security check
@@ -30,18 +31,14 @@ if ($get_token != $token) {
  */
 
 function is_ip_in($ip, $cidrs, &$match = null) {
-	foreach((array) $cidrs as $cidr) {
-		if (strpos($cidr, '/') == false) {
-			$cidr .= '/32';
-		}
-		list($subnet, $mask) = explode('/', $cidr);
-		if(((ip2long($ip) & ($mask = ~ ((1 << (32 - $mask)) - 1))) == (ip2long($subnet) & $mask))) {
-			$match = $cidr;
-			return true;
-		}
-	}
-	return false;
+    $cIDRmatch = new CIDRmatch();
+    foreach((array) $cidrs as $cidr) {
+        $r = $cIDRmatch -> match($ip, $cidr);
+        if ($r === true) return true;
+    }
+    return false;
 }
+
 
 /*
 * Initial configurations
